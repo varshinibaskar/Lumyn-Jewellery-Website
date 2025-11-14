@@ -4,7 +4,15 @@ import { useCart } from "../context/CartContext";
 import "./cart.css";
 
 const CartPage = () => {
-  const { cartItems, removeFromCart, clearCart, getTotalAmount } = useCart();
+  const {
+    cartItems,
+    removeFromCart,
+    clearCart,
+    getTotalAmount,
+    increaseQuantity,
+    decreaseQuantity,
+  } = useCart();
+
   const navigate = useNavigate();
 
   const handleCheckout = () => {
@@ -14,6 +22,7 @@ const CartPage = () => {
   return (
     <div className="cart-page">
       <h1>My Cart</h1>
+
       {cartItems.length === 0 ? (
         <p className="empty-cart">Your cart is empty.</p>
       ) : (
@@ -21,12 +30,44 @@ const CartPage = () => {
           <div className="cart-items">
             {cartItems.map((item) => (
               <div key={item.id} className="cart-item">
-                <img src={item.image} alt={item.name} className="cart-item-image" />
+                <img
+                  src={item.image}
+                  alt={item.name}
+                  className="cart-item-image"
+                />
+
                 <div className="cart-item-details">
                   <h3>{item.name}</h3>
-                  <p>Quantity: {item.quantity}</p>
-                  <p>Price: ${item.price * item.quantity}</p>
-                  <button className="remove-btn" onClick={() => removeFromCart(item.id)}>
+
+                  {/* Quantity Controls */}
+                  <div className="quantity-controls">
+                    <button
+                      className="qty-btn"
+                      onClick={() => decreaseQuantity(item.id)}
+                    >
+                      -
+                    </button>
+
+                    <span className="qty-value">{item.quantity}</span>
+
+                    <button
+                      className="qty-btn"
+                      onClick={() => increaseQuantity(item.id)}
+                    >
+                      +
+                    </button>
+                  </div>
+
+                  {/* Price */}
+                  <p className="item-price">
+                    Price: ${item.price * item.quantity}
+                  </p>
+
+                  {/* Remove Button */}
+                  <button
+                    className="remove-btn"
+                    onClick={() => removeFromCart(item.id)}
+                  >
                     Remove
                   </button>
                 </div>
@@ -34,11 +75,18 @@ const CartPage = () => {
             ))}
           </div>
 
+          {/* Summary */}
           <div className="cart-summary">
             <h2>Total: ${getTotalAmount()}</h2>
+
             <div className="cart-actions">
-              <button className="clear-btn" onClick={clearCart}>Clear Cart</button>
-              <button className="checkout-btn" onClick={handleCheckout}>Proceed to Checkout</button>
+              <button className="clear-btn" onClick={clearCart}>
+                Clear Cart
+              </button>
+
+              <button className="checkout-btn" onClick={handleCheckout}>
+                Proceed to Checkout
+              </button>
             </div>
           </div>
         </div>
@@ -48,6 +96,7 @@ const CartPage = () => {
 };
 
 export default CartPage;
+
 
 
 

@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom"; // <-- import Link
+import { Link } from "react-router-dom"; 
 import "./Home.css";
+import AboutUs from "./About"
+/*import ContactUs from "../components/ContactUs";*/
+
 
 const Home = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -39,17 +42,16 @@ const Home = () => {
   ];
 
   const featuredItems = [
-    { name: "Item 1", img: "/featured/feat1.jpg" },
-    { name: "Item 2", img: "/featured/feat2.jpg" },
-    { name: "Item 3", img: "/featured/feat3.jpg" },
-    { name: "Item 4", img: "/featured/feat4.jpg" },
-    { name: "Item 5", img: "/featured/feat5.jpg" },
-    { name: "Item 6", img: "/featured/feat6.jpg" },
+    { name: "Diamond Bracelet", img: "/featured/feat1.jpg" },
+    { name: "Gold Earring", img: "/featured/feat2.jpg" },
+    { name: "Diamond Earring", img: "/featured/feat3.jpg" },
+    { name: "Gold Bangle", img: "/featured/feat4.jpg" },
+    { name: "Diamond Jhumkha", img: "/featured/feat5.jpg" },
+    { name: "Gold Pendent", img: "/featured/feat6.jpg" },
   ];
 
   return (
     <div className="home">
-      {/* HERO SLIDER */}
       <div className="slider">
         {images.map((img, index) => (
           <img
@@ -61,7 +63,6 @@ const Home = () => {
         ))}
       </div>
 
-      {/* CATEGORIES */}
       <section className="categories">
         {categories.map((cat, index) => (
           <div key={index} className="category">
@@ -71,7 +72,6 @@ const Home = () => {
         ))}
       </section>
 
-      {/* COLLECTIONS */}
       <section className="collections">
         {collections.map((col, index) => (
           <Link
@@ -85,7 +85,6 @@ const Home = () => {
         ))}
       </section>
 
-      {/* FEATURED */}
       <section className="featured">
         <h2>Featured Jewellery</h2>
         <div className="featured-items">
@@ -97,8 +96,11 @@ const Home = () => {
           ))}
         </div>
       </section>
-    </div>
-  );
+      <section>
+  <AboutUs />
+</section>
+</div>
+);
 };
 
 export default Home;

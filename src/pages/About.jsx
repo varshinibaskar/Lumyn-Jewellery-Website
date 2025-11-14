@@ -1,4 +1,5 @@
 import React from "react";
+import ContactUs from "../components/ContactUs";
 
 const About = () => {
   return (
@@ -22,6 +23,7 @@ const About = () => {
         <li>💖 Customer Satisfaction</li>
         <li>✨ Timeless Design</li>
       </ul>
+      <ContactUs />
     </div>
   );
 };
