@@ -175,8 +175,11 @@
 .craft-image {
   flex: 1;
   min-height: 320px;
-  background-size: cover;
-  background-position: center;
+  background-image: url("jewelry-about.jpg"); 
+  background-size: cover;       
+  background-position: center; 
+  background-repeat: no-repeat; 
+  border-radius: 15px;          
 }
 
 .craft-text-box {

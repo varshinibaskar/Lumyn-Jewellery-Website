@@ -97,18 +97,6 @@ const Home = () => {
         </div>
       </section>
       <section className="craft-section">
-        <div className="craft-left">
-           <div
-  className="craft-image"
-  style={{
-    backgroundImage: "url(/images/jewelry-about.jpg)",
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    backgroundRepeat: "no-repeat"
-  }}
-></div>
-
-</div>
         <div className="craft-image"></div>
         <div className="craft-text-box">
           <h2 className="section-heading">Exceptional Craftsmanship</h2>

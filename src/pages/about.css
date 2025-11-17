@@ -5,11 +5,14 @@
   padding-bottom: 60px;
 }
 
+/* ---------------- HERO SECTION ---------------- */
 .hero-section {
   position: relative;
   height: 70vh;
+  background-image: url("hero-jewelry.jpg"); /* Add your hero image */
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -42,6 +45,7 @@
   animation: fadeIn 1.4s ease;
 }
 
+/* ---------------- ABOUT SECTION ---------------- */
 .about-content {
   max-width: 900px;
   margin: 60px auto;
@@ -63,6 +67,7 @@
   color: #555;
 }
 
+/* ---------------- CRAFT SECTION ---------------- */
 .craft-section {
   max-width: 1100px;
   margin: 80px auto;
@@ -74,17 +79,22 @@
 
 .craft-image {
   flex: 1;
+  background-image: url("jewelry-about.jpg"); /* Add your craft image */
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat; /* Prevent repeating */
   border-radius: 15px;
   height: 350px;
   box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  min-width: 300px; /* Prevent collapsing on small screens */
 }
 
 .craft-text-box {
   flex: 1;
   align-self: center;
 }
+
+/* ---------------- VALUES SECTION ---------------- */
 .values-section {
   margin-top: 80px;
   text-align: center;
@@ -117,6 +127,7 @@
   margin-bottom: 10px;
 }
 
+/* ---------------- ANIMATIONS ---------------- */
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -127,12 +138,26 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* ---------------- RESPONSIVE ---------------- */
+@media (max-width: 1024px) {
+  .craft-section {
+    flex-direction: column;
+  }
+  .craft-image {
+    height: 300px;
+    width: 100%;
+  }
+}
+
 @media (max-width: 768px) {
   .hero-title {
     font-size: 34px;
   }
-  .craft-section {
-    flex-direction: column;
+  .hero-subtitle {
+    font-size: 18px;
+  }
+  .craft-image {
+    height: 250px;
   }
 }
 
